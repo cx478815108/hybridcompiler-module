@@ -101,7 +101,11 @@ module.exports = class HTMLNode{
         const styleString = this.attributes['style'];
         if(!styleString) return ;
         const style = Util.parseStyleString(styleString);
-        this.style  = Object.assign(style, this.style);
+        for(let key in style){
+            const trimKey = key.trim();
+            const trimValue = style[key].trim();
+            this.style[trimKey] = trimValue;
+        }
     }
 
     processClickString(){
@@ -202,11 +206,16 @@ module.exports = class HTMLNode{
         for(let prop of props){
             for (let item of store){
                 const val = item[prop];
-                if(val && !val.startsWith('rgb')){
+                if(!val){ continue ;}
+                if(!val.startsWith('rgb')){
                     let rgbVal = Util.parseSpecificColor(val);
                     if(rgbVal){
                         item[prop] = rgbVal;
                     }
+                }
+                else {
+                    // 去除空格
+                    item[prop] = val.replace(/ /g, '');
                 }
             }
         }
@@ -249,7 +258,7 @@ module.exports = class HTMLNode{
         delete(this.attributes["style"]);
         delete(this.attributes['@click']);
         delete(this.attributes['stickyLayout']);
-        delete(this.attributes['class']);
+        // delete(this.attributes['class']);
         
         for (const key in TokenInstructions) {
             const val = TokenInstructions[key];

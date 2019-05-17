@@ -41,6 +41,11 @@ class DOMAnalyse {
     }
 
     nodeWalker(xmlNode, nodeProcess) {
+        const list = ['table','flowlist'];
+        if (list.includes(xmlNode.tagName)) {
+            xmlNode.isForNode = true;
+        }
+
         // push栈操作
         this.pushStack(xmlNode);
         nodeProcess(xmlNode);
@@ -49,7 +54,7 @@ class DOMAnalyse {
         });
         // pop栈操作
         this.popStack(xmlNode);
-        const list = ['table','flowlist'];
+
         if (list.includes(xmlNode.tagName)) {
             xmlNode.isForNode = false;
         }

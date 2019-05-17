@@ -60,7 +60,8 @@ const fontAttributes = {
     'font-family'    : true,
     'text-align'     : true,
     'color'          : true,
-    'highlight-color': true
+    'highlight-color': true,
+    'line-height'    : true,
 }
 
 module.exports = {

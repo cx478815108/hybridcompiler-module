@@ -1,5 +1,6 @@
 module.exports = {
     'clear'           : 'rgba(0,0,0,0)',
+    'none'            : 'rgba(0,0,0,0)',
     "snow"            : "rgb(255,250,250)",
     "ghostwhite"      : "rgb(248,248,255)",
     "whitesmoke"      : "rgb(245,245,245)",
