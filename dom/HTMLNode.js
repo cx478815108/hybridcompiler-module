@@ -60,7 +60,9 @@ module.exports = class HTMLNode{
     }
 
     addCSSStyle(cssStyle){
-        this.style = Object.assign(cssStyle, this.style);
+        for(let key in cssStyle){
+            this.style[key] = cssStyle[key];
+        }
     }
 
     // 此接口由外界调用
