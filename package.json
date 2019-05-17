@@ -1,0 +1,26 @@
+{
+  "name": "hybridcompiler",
+  "version": "1.0.3",
+  "description": "hybridcompiler",
+  "main": "index.js",
+  "author": "cx",
+  "license": "MIT",
+  "dependencies": {
+    "blueimp-md5": "^2.10.0",
+    "css-select": "^2.0.2",
+    "fs-extra": "^7.0.1",
+    "gulp-file-include": "^2.0.1",
+    "gulp-filter": "^5.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-zip": "^4.2.0",
+    "htmlparser2": "^3.10.1",
+    "postcss": "^7.0.16",
+    "postcss-import": "^12.0.1",
+    "rollup": "^1.11.3",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "terser": "^3.17.0",
+    "vinyl-fs": "^3.0.3"
+  }
+}
