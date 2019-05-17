@@ -198,12 +198,15 @@ module.exports = class HTMLNode{
 
     processStyleColors(){
         const props = ['background-color','color','border-color','highlight-color'];
+        const store = [this.style, this.fontStyle];
         for(let prop of props){
-            const val = this.style[prop];
-            if(val && !val.startsWith('rgb')){
-                let rgbVal = Util.parseSpecificColor(val);
-                if(rgbVal){
-                    this.style[prop] = rgbVal;
+            for (let item of store){
+                const val = item[prop];
+                if(val && !val.startsWith('rgb')){
+                    let rgbVal = Util.parseSpecificColor(val);
+                    if(rgbVal){
+                        item[prop] = rgbVal;
+                    }
                 }
             }
         }

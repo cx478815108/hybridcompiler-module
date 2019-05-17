@@ -46,3 +46,14 @@ class Hybrid{
 
 const hybrid = new Hybrid();
 module.exports = hybrid;
+
+// const json = {
+//     "bundle.identifier": "test",
+//     "displayName": "计算器",
+//     "workDirectory": "/Users/feelings/FrontEnd/Token小程序/helloworld",
+//     "entryJS": "index.js",
+//     "entryHTML": "index.html",
+//     "entryCSS": "index.css"
+//   }
+
+//   hybrid.build(json);
