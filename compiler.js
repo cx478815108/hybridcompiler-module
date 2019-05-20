@@ -69,7 +69,7 @@ class Compiler{
         }
 
         // 3. 对assets文件夹进行复制
-        const assetsPath = path.join(cwd, 'assets');
+        const assetsPath = path.join(configJSON.workDirectory, 'assets');
         if(fs.existsSync(assetsPath) && fs.lstatSync(assetsPath).isDirectory()){
             fs.copySync(assetsPath, path.join(productionPath, 'assets'));
         }
