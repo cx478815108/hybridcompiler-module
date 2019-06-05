@@ -65,11 +65,14 @@ module.exports = class HTMLNode{
         }
     }
 
-    // 此接口由外界调用
-    processAttributes(){
+    setAttributes(attrs){
+        this.attributes = attrs;
         this.id   = this.attributes["id"] || '';
         this.bind = this.attributes[TokenInstructions.bind] || '';
-        
+    }
+
+    // 此接口由外界调用
+    processAttributes(){
         // 解析@click 指令
         this.processClickString();
         // 解析t:for指令

@@ -21,7 +21,7 @@ module.exports = class HTMLDocument {
             onopentag: function (tagName, attributes) {
                 const node      = new HTMLNode();
                 node.tagName    = tagName;
-                node.attributes = attributes;
+                node.setAttributes(attributes);
                 nodeStack.push(node);
 
                 if (!rootNode) {
