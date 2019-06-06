@@ -1,5 +1,6 @@
-const fs   = require("fs-extra")
-const path = require('path');
+const fs        = require("fs-extra")
+const path      = require('path');
+const mapStream = require('./utils/mapStream');
 
 const vfs         = require('vinyl-fs');
 const fileinclude = require('gulp-file-include');
@@ -70,20 +71,25 @@ class Organizer{
                     return reject(`${item.path} 不存在`);
                 }
 
+                const zipFinish = (file, cb)=> {
+                    resolve();
+                    cb(null, file);
+                };
+
                 vfs.src(item.path)
-                    .pipe(fileinclude({
-                        prefix: '@@',
-                        basepath: '@file'
-                    }))
-                    .pipe(rename(function (path) {
-                        if(item.name.endsWith('.html')){
-                            item.name = item.name.replace('.html','');
-                        }
-                        path.basename = item.name;
-                      }))
-                    .pipe(vfs.dest(item.outputPath));
+                .pipe(fileinclude({
+                    prefix: '@@',
+                    basepath: '@file'
+                }))
+                .pipe(rename(function (path) {
+                    if(item.name.endsWith('.html')){
+                        item.name = item.name.replace('.html','');
+                    }
+                    path.basename = item.name;
+                }))
+                .pipe(vfs.dest(item.outputPath))
+                .pipe(mapStream(zipFinish));
             }
-            resolve();
         });
     }
 
