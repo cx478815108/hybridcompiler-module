@@ -20,7 +20,7 @@
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
-    "terser": "^3.17.0",
+    "terser": "^4.8.1",
     "vinyl-fs": "^3.0.3"
   }
 }
